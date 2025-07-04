@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+@tailwind utilities;
+
+
+.ag-theme-alpine {
+  --ag-header-background-color: #2b6cb0;
+  --ag-header-foreground-color: white;
+  --ag-row-hover-color: #bee3f8;
+}
