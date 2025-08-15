@@ -1,13 +1,8 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './pages/warehouse/list/list.component';
-import { DetailsComponent } from './pages/warehouse/details/details.component';
-import { CreateComponent } from './pages/warehouse/create/create.component';
-import { EditComponent } from './pages/warehouse/edit/edit.component';
-
+import { SupplierComponent } from './pages/supplier/supplier.component';
+import { CategoryComponent } from './pages/category/category.component';
 export const routes: Routes = [
-  { path: 'warehouse', redirectTo: 'warehouse/list', pathMatch: 'full' },
-  { path: 'warehouse/list', component: ListComponent },
-  { path: 'warehouse/:playerId/details', component: DetailsComponent },
-  { path: 'warehouse/create', component: CreateComponent },
-  { path: 'warehouse/:playerId/edit', component: EditComponent }
-];
+  { path: 'warehouse',  component: ListComponent},
+  { path: 'supplier', component: SupplierComponent },
+  {path:'category',component:CategoryComponent}]

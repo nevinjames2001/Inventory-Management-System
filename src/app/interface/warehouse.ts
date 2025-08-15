@@ -1,12 +1,10 @@
 export interface Warehouse {
-
-
-  WarehouseId: number;
-  WarehouseName: string;
-  StreetAddress: string;
-  City: string;
-  Province: string;
-  Country: string;
-  Latitude: string;
-  Longitude: string;
+  warehouseId?: number;
+  Name: string;
+  Location: string;
+  ContactNumber: string;
+  ManagerName: string;
+  isActive: boolean;
+  CreatedDate: string;
+  modifiedDate: string;
 }

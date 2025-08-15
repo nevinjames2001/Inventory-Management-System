@@ -1,0 +1,42 @@
+<p-dialog [header]=" 'Add '" [(visible)]="visible" [modal]="true"
+  [style]="{ width: '80vw' }" [closable]="true" (onHide)="closeDialog()">
+
+  <form [formGroup]="form" (ngSubmit)="onSave()">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+      <ng-container *ngFor="let field of fields">
+        <div *ngIf="field.type === 'text'">
+          <label [for]="field.name">{{field.label}}</label>
+          <input [id]="field.name" type="text" [formControlName]="field.name" class="block w-full rounded-md border-indigo-700 text-gray-800 shadow-sm h-8 md:text-sm"/>
+        </div>
+        <div *ngIf="field.type === 'email'">
+            <label [for]="field.name">{{field.label}}</label>
+            <input [id]="field.name" type="email" [formControlName]="field.name"
+              class="block w-full rounded-md border-indigo-700 text-gray-800 shadow-sm h-8 md:text-sm" />
+        </div>
+        <div *ngIf="field.type === 'dropdown'">
+          <label [for]="field.name">{{field.label}}</label>
+          <p-dropdown [id]="field.name" type="email" [options]="field.options" [optionValue]="field.optionValue" [optionLabel]="field.optionLabel" [formControlName]="field.name"
+            class="block w-full rounded-md border-indigo-700 text-gray-800 shadow-sm h-8 md:text-sm" />
+        </div>
+        <div *ngIf="field.type === 'radio'">
+          <label class="block">{{ field.label }}</label>
+          <div class="flex gap-4 mt-2">
+            <label *ngFor="let option of field.options" class="flex items-center gap-2">
+              <input type="radio" [formControlName]="field.name" [value]="option"
+                class="h-4 w-4 text-indigo-600 border-indigo-300" />
+              {{ option }}
+            </label>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="flex justify-end gap-2 mt-4">
+      <button type="button" (click)="closeDialog()" class="text-sm font-semibold text-gray-900">Cancel</button>
+      <button type="submit" [disabled]="form.invalid"
+        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500">
+        Save
+      </button>
+    </div>
+  </form>
+</p-dialog>
